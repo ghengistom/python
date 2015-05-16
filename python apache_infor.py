@@ -60,19 +60,19 @@ def gen_lines(file_objects):
     Yield: line from a file object
     '''
     # +++ your code here+++
-	def read_in_chunks(file_object, file_size=1024):
+	
     """(generator) to read a file piece by piece.
     Default size: 1k."""
     while True:
-        data = file_object.read(file_size)
+        lines = file_object.read(file_size)
         if not data:
             break
-        yield data
+        yield lines
 
 
-f = open('really_big_file.dat')
-for piece in read_in_chunks(f):
-    process_data(piece)
+    f = open('access_log')
+    for piece in read_in_chunks(f):
+        process_data(piece)
 
 def gen_log_infos(lines):
     '''Given the line generator, create a generator of a dictionary of info
